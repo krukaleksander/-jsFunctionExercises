@@ -1,4 +1,11 @@
-import {sumOfArray} from "./index";
+import {say, sumOfArray} from "./index";
+
+describe('usage of closures', function () {
+    it('should greet user', function () {
+        const sayHelloTo = say('Hello');
+        expect(sayHelloTo('Dominik')).toBe('Hello, Dominik!')
+    });
+})
 
 
 describe('sum of array', () => {

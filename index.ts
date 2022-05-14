@@ -1,9 +1,10 @@
 // 1. Please write a function that shows the usage of closures
-
+export const say = (greetMsg: string): (name: string) => string => (name: string) => `${greetMsg}, ${name}!`;
 // 2. Please write a function that returns a sum of array items
 // example input [9, 1, 22, 0, 2]
 // example output 34
 export const sumOfArray = (arr: number[]) => arr.reduce((previousValue, currentValue) => previousValue + currentValue, 0);
+
 // 3. Please write a recursive function that flattens a list of items
 // example input [[2, [4, [44,5,6]]], [4,5,6], [[2,4], 4], 5]]
 // example output [2, 4, 44, 5, 6, 4, 5, 6, 2, 4, 4, 5]
@@ -31,4 +32,3 @@ export const sumOfArray = (arr: number[]) => arr.reduce((previousValue, currentV
 // 9. Please write a function which takes a list of keys and an object, then returns this object, just without keys from the list
 // example input ['color', 'size'], { color: 'Blue', id: '22', size: 'xl' }
 // example output { id: '22' }
-
