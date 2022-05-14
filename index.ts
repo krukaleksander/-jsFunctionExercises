@@ -3,7 +3,7 @@
 // 2. Please write a function that returns a sum of array items
 // example input [9, 1, 22, 0, 2]
 // example output 34
-
+export const sumOfArray = (arr: number[]) => arr.reduce((previousValue, currentValue) => previousValue + currentValue, 0);
 // 3. Please write a recursive function that flattens a list of items
 // example input [[2, [4, [44,5,6]]], [4,5,6], [[2,4], 4], 5]]
 // example output [2, 4, 44, 5, 6, 4, 5, 6, 2, 4, 4, 5]
