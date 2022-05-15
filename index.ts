@@ -8,6 +8,7 @@ export const sumOfArray = (arr: number[]) => arr.reduce((previousValue, currentV
 // 3. Please write a recursive function that flattens a list of items
 // example input [[2, [4, [44,5,6]]], [4,5,6], [[2,4], 4], 5]]
 // example output [2, 4, 44, 5, 6, 4, 5, 6, 2, 4, 4, 5]
+export const flat = exampleArray => exampleArray.reduce((previousValue, currentValue) => !Array.isArray(currentValue) ? previousValue.concat(currentValue)  : previousValue.concat(flat(currentValue)), []);
 
 // 4. Please write a function that finds all common elements of two arrays(only primitive types as array elements, order doesn't matter)
 // example inputs ['b', 3, 4, 76, 'c'], ['a', 'b', 4, 76, 21, 'e']
