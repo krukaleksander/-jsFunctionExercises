@@ -1,4 +1,4 @@
-import {flat, say, sumOfArray} from "./index";
+import {findCommonElements, flat, say, sumOfArray} from "./index";
 
 describe('usage of closures', function () {
     it('should greet user', function () {
@@ -19,5 +19,14 @@ describe('flat an array', () => {
         const exampleArray = [[2, [4, [44,5,6]]], [4,5,6], [[2,4], 4], 5];
         const exampleOutput = [2, 4, 44, 5, 6, 4, 5, 6, 2, 4, 4, 5];
 expect(flat(exampleArray)).toEqual(exampleOutput)
+    });
+})
+
+describe('finds all common elements of two arrays', () => {
+    it('should find all common elements of two arrays', function () {
+        const firstArray = ['b', 3, 4, 76, 'c'];
+        const secondArray = ['a', 'b', 4, 76, 21, 'e'];
+        const expectedResult = ['b', 4, 76];
+        expect(findCommonElements(firstArray,secondArray)).toEqual(expectedResult);
     });
 })

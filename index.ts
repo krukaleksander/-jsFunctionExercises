@@ -25,6 +25,14 @@ export const flat = (exampleArray) =>
 // example inputs ['b', 3, 4, 76, 'c'], ['a', 'b', 4, 76, 21, 'e']
 // example output ['b', 4, 76]
 
+export const findCommonElements = (firstArray: unknown[], secondArray: unknown[]) => {
+  const commonElements = [];
+  firstArray.forEach(element => {
+    secondArray.findIndex(item => item === element) > -1 ? commonElements.push(element) : undefined
+  })
+  return commonElements
+};
+
 // 5. Please write a function that finds all different elements of two arrays(only primitive types as array elements, order doesn't matter)
 // example inputs ['b', 3, 4, 76, 'c'], ['a', 'b', 4, 76, 21, 'e']
 // example output ['a', 3, 21, 'c', 'e']
