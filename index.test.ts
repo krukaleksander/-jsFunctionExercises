@@ -61,4 +61,14 @@ describe('function which takes a path and object, then returns value at this pat
         const object = { a: { b: { c: { d: '23' } } } };
         expect(findValueAtPath(path,object)).toBe('23')
     });
+    it('should returns undefined if value at path doesn\'t exists, path is deeper', function () {
+        const path = ['a', 'b', 'c', 'd', 'e', 'f'];
+        const object = { a: { b: { c: { d: '23' } } } };
+        expect(findValueAtPath(path,object)).toBe(undefined)
+    });
+    it('should returns undefined if value at path doesn\'t exists, path is wrong', function () {
+        const path = ['a', 'b', 'x', 'd'];
+        const object = { a: { b: { c: { d: '23' } } } };
+        expect(findValueAtPath(path,object)).toBe(undefined)
+    });
 })

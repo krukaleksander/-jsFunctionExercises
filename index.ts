@@ -58,6 +58,7 @@ export const tuplesFrom = (firstArray: unknown[], secondArray: unknown[]) => {
 export const findValueAtPath = (path, object) => {
   let result = object;
   for (let i = 0; i < path.length; i++) {
+    if( result[path[i]] === undefined) return undefined
     result = result[path[i]]
   }
   return result;
