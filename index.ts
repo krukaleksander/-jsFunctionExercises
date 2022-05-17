@@ -37,6 +37,12 @@ export const findCommonElements = (firstArray: unknown[], secondArray: unknown[]
 // example inputs ['b', 3, 4, 76, 'c'], ['a', 'b', 4, 76, 21, 'e']
 // example output ['a', 3, 21, 'c', 'e']
 
+export function findDifferentElements(firstArray: unknown[], secondArray: unknown[]) {
+  const differenceFirstPerspective = secondArray.filter(secondElement => !firstArray.includes(secondElement))
+  const differenceSecondPerspective = firstArray.filter(firstElement => !secondArray.includes(firstElement))
+  return [...differenceFirstPerspective, ...differenceSecondPerspective]
+}
+
 // 6. Please write a function that takes two arrays of items and returns an array of tuples made from two input arrays at the same indexes. Excessive items should be dropped.
 // example input [1,2,3], [4,5,6,7]
 // example output [[1,4], [2,5], [3,6]]
@@ -48,7 +54,6 @@ export const findCommonElements = (firstArray: unknown[], secondArray: unknown[]
 // 8. Please write compare function which compares 2 objects for equality.
 // example input { a: 'b', c: 'd' }, { c: 'd', a: 'b' }  /// output true
 // example input { a: 'c', c: 'a' }, { c: 'd', a: 'b', q: 's' }  /// output false
-
 // 9. Please write a function which takes a list of keys and an object, then returns this object, just without keys from the list
 // example input ['color', 'size'], { color: 'Blue', id: '22', size: 'xl' }
 // example output { id: '22' }
