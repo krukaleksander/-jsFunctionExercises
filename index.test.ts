@@ -1,4 +1,4 @@
-import {findCommonElements, findDifferentElements, flat, say, sumOfArray} from "./index";
+import {findCommonElements, findDifferentElements, flat, say, sumOfArray, tuplesFrom} from "./index";
 
 describe('usage of closures', function () {
     it('should greet user', function () {
@@ -37,5 +37,20 @@ describe('finds all different elements of two arrays', () => {
         const secondArray = ['a', 'b', 4, 76, 21, 'e'];
         const expectedResult = ['a', 3, 21, 'c', 'e'];
         expect(findDifferentElements(firstArray,secondArray)).toEqual(expect.arrayContaining(expectedResult));
+    });
+})
+
+describe('function that takes two arrays of items and returns an array of tuples', () => {
+    it('should returns an array of tuples made from two input arrays at the same indexes', function () {
+        const firstArray = [1,2,3];
+        const secondArray = [4,5,6,7];
+        const expectedResult = [[1,4], [2,5], [3,6]];
+        expect(tuplesFrom(firstArray,secondArray)).toEqual(expectedResult)
+    });
+    it('should returns an array of tuples made from two input arrays at the same indexes in case first array is longer than second', function () {
+        const firstArray = [4,5,6,7];
+        const secondArray = [1,2,3];
+        const expectedResult = [[4,1], [5,2], [6,3]];
+        expect(tuplesFrom(firstArray,secondArray)).toEqual(expectedResult)
     });
 })

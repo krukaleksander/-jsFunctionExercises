@@ -47,10 +47,14 @@ export const findDifferentElements = (firstArray: unknown[], secondArray: unknow
 // example input [1,2,3], [4,5,6,7]
 // example output [[1,4], [2,5], [3,6]]
 
+export const tuplesFrom = (firstArray: unknown[], secondArray: unknown[]) => {
+  if(firstArray.length > secondArray.length) firstArray = firstArray.slice(0, secondArray.length)
+  return firstArray.map((firstArrayElement, index) => [firstArrayElement, secondArray[index]])
+};
+
 // 7. Please write a function which takes a path(path is an array of keys) and object, then returns value at this path. If value at path doesn't exists, return undefined.
 // example inputs ['a', 'b', 'c', 'd'], { a: { b: { c: { d: '23' } } } }
 // example output '23'
-
 // 8. Please write compare function which compares 2 objects for equality.
 // example input { a: 'b', c: 'd' }, { c: 'd', a: 'b' }  /// output true
 // example input { a: 'c', c: 'a' }, { c: 'd', a: 'b', q: 's' }  /// output false
