@@ -1,4 +1,4 @@
-import {findCommonElements, findDifferentElements, flat, say, sumOfArray, tuplesFrom} from "./index";
+import {findCommonElements, findDifferentElements, findValueAtPath, flat, say, sumOfArray, tuplesFrom} from "./index";
 
 describe('usage of closures', function () {
     it('should greet user', function () {
@@ -52,5 +52,13 @@ describe('function that takes two arrays of items and returns an array of tuples
         const secondArray = [1,2,3];
         const expectedResult = [[4,1], [5,2], [6,3]];
         expect(tuplesFrom(firstArray,secondArray)).toEqual(expectedResult)
+    });
+})
+
+describe('function which takes a path and object, then returns value at this path', () => {
+    it('should returns value at given path', function () {
+        const path = ['a', 'b', 'c', 'd'];
+        const object = { a: { b: { c: { d: '23' } } } };
+        expect(findValueAtPath(path,object)).toBe('23')
     });
 })

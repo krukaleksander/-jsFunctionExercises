@@ -55,6 +55,13 @@ export const tuplesFrom = (firstArray: unknown[], secondArray: unknown[]) => {
 // 7. Please write a function which takes a path(path is an array of keys) and object, then returns value at this path. If value at path doesn't exists, return undefined.
 // example inputs ['a', 'b', 'c', 'd'], { a: { b: { c: { d: '23' } } } }
 // example output '23'
+export const findValueAtPath = (path, object) => {
+  let result = object;
+  for (let i = 0; i < path.length; i++) {
+    result = result[path[i]]
+  }
+  return result;
+};
 // 8. Please write compare function which compares 2 objects for equality.
 // example input { a: 'b', c: 'd' }, { c: 'd', a: 'b' }  /// output true
 // example input { a: 'c', c: 'a' }, { c: 'd', a: 'b', q: 's' }  /// output false
