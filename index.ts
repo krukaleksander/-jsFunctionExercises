@@ -73,7 +73,11 @@ export const compareObjects = (firstObject, secondObject): boolean => {
     result = property in secondObject && secondObject[property] === firstObject[property]
   }
   return result;
-};
+  };
 // 9. Please write a function which takes a list of keys and an object, then returns this object, just without keys from the list
 // example input ['color', 'size'], { color: 'Blue', id: '22', size: 'xl' }
 // example output { id: '22' }
+export const removeKeysFromObject = (keys, object) => {
+  keys.forEach(key => delete object[key])
+  return object;
+};

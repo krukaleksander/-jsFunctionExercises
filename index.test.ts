@@ -4,6 +4,7 @@ import {
     findDifferentElements,
     findValueAtPath,
     flat,
+    removeKeysFromObject,
     say,
     sumOfArray,
     tuplesFrom
@@ -97,5 +98,20 @@ describe('function which compares 2 objects for equality', () => {
         const firstObject = { a: 'c', c: 'a' };
         const secondObject = { c: 'd', a: 'b', q: 's' };
         expect(compareObjects(firstObject,secondObject)).toBe(false);
+    });
+})
+
+describe('function which takes a list of keys and an object, then returns this object, just without keys', () => {
+    it('should return object without keys', function () {
+        const keys = ['color', 'size'];
+        const object = { color: 'Blue', id: '22', size: 'xl' };
+        const exampleOutput = { id: '22' };
+        expect(removeKeysFromObject(keys, object)).toEqual(exampleOutput)
+    });
+    it('should return object if keys were not valid', function () {
+        const keys = ['foo', 'bar'];
+        const object = { color: 'Blue', id: '22', size: 'xl' };
+        const exampleOutput = { color: 'Blue', id: '22', size: 'xl' };
+        expect(removeKeysFromObject(keys, object)).toEqual(exampleOutput)
     });
 })
