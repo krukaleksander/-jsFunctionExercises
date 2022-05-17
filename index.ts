@@ -66,6 +66,14 @@ export const findValueAtPath = (path, object) => {
 // 8. Please write compare function which compares 2 objects for equality.
 // example input { a: 'b', c: 'd' }, { c: 'd', a: 'b' }  /// output true
 // example input { a: 'c', c: 'a' }, { c: 'd', a: 'b', q: 's' }  /// output false
+export const compareObjects = (firstObject, secondObject): boolean => {
+  let result = null;
+  for (const property in firstObject) {
+    if (result === false) return false
+    result = property in secondObject && secondObject[property] === firstObject[property]
+  }
+  return result;
+};
 // 9. Please write a function which takes a list of keys and an object, then returns this object, just without keys from the list
 // example input ['color', 'size'], { color: 'Blue', id: '22', size: 'xl' }
 // example output { id: '22' }

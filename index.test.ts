@@ -1,4 +1,13 @@
-import {findCommonElements, findDifferentElements, findValueAtPath, flat, say, sumOfArray, tuplesFrom} from "./index";
+import {
+    compareObjects,
+    findCommonElements,
+    findDifferentElements,
+    findValueAtPath,
+    flat,
+    say,
+    sumOfArray,
+    tuplesFrom
+} from "./index";
 
 describe('usage of closures', function () {
     it('should greet user', function () {
@@ -70,5 +79,23 @@ describe('function which takes a path and object, then returns value at this pat
         const path = ['a', 'b', 'x', 'd'];
         const object = { a: { b: { c: { d: '23' } } } };
         expect(findValueAtPath(path,object)).toBe(undefined)
+    });
+})
+
+describe('function which compares 2 objects for equality', () => {
+    it('should return true if objects are equal', function () {
+        const firstObject = { a: 'b', c: 'd' };
+        const secondObject = { c: 'd', a: 'b' };
+        expect(compareObjects(firstObject,secondObject)).toBe(true);
+    });
+    it('should return false if objects have same properties but values are different', function () {
+        const firstObject = { a: 'b', c: 'd' };
+        const secondObject = { c: 'y', a: 'x' };
+        expect(compareObjects(firstObject,secondObject)).toBe(false);
+    });
+    it('should return false if objects have different properties and values', function () {
+        const firstObject = { a: 'c', c: 'a' };
+        const secondObject = { c: 'd', a: 'b', q: 's' };
+        expect(compareObjects(firstObject,secondObject)).toBe(false);
     });
 })
